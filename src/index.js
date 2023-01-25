@@ -3,20 +3,24 @@
 
 module.exports = function towelSort (matrix) {
   let empty = [];
-    if (matrix.length == 0) {
-        return [];
-    } else if (matrix[0].length == 0 && matrix[1].length == 0 && matrix[2].length == 0) {
-        return [];
-    } else {
-        matrix.forEach(item => {
-            if (item.length == 0) {
-                item.push(empty);
-            }
-        });
-        let arr1 = matrix[1];
-        let reverseArr1 = arr1.reverse();
-        matrix[1] = reverseArr1;
+  if (matrix.length == 0) {
+      return [];
+  } else {
+      matrix.forEach(item => {
+          if (item.length == 0) {
+              item.push(empty);
+          }
+      });
+      let everySecondArrays = matrix.filter(item => {
+          let evenIndex = matrix.indexOf(item) + 1; 
+          if (evenIndex % 2 === 0) {
+            return evenIndex;
+          }
+        })
+      everySecondArrays.forEach(item => {
+          item.reverse();
+      })
 
-        return matrix.flat();
-    }
+      return matrix.flat();
+  }
 }

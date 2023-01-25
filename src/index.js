@@ -5,6 +5,8 @@ module.exports = function towelSort (matrix) {
   let empty = [];
     if (matrix.length == 0) {
         return [];
+    } else if (matrix[0].length == 0 && matrix[1].length == 0 && matrix[2].length == 0) {
+        return [];
     } else {
         matrix.forEach(item => {
             if (item.length == 0) {

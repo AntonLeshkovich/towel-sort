@@ -4,6 +4,8 @@
 module.exports = function towelSort (matrix) {
   let result;
   if (matrix[1].length == 0) {
+      let arr1 = [];
+      matrix[1].push(arr1);
       return result = matrix.flat();
   } else {
       let arr1 = matrix[1];
